@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.netlify/
+*.cjs
+*_mask.html
+dashboard_demo.html
+thumb1.html
+thumb4.html
+ONG.png
+shot.png
