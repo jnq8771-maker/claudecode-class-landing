@@ -24,6 +24,8 @@
     @keyframes pulse-cta { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
     .pulse { animation: pulse-cta 1.8s ease-in-out infinite; }
     .blink { animation: blink 1.2s step-start infinite; } @keyframes blink { 50%{opacity:.4} }
+    @keyframes fall { 0% { transform: translateY(-34px); opacity: 0; } 18% { opacity: 1; } 82% { opacity: 1; } 100% { transform: translateY(86px); opacity: 0; } }
+    .fall-word { animation: fall 3s ease-in infinite; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .mq-track > div { margin-right: 16px; }
@@ -128,7 +130,7 @@
   <section class="px-5 py-16 bg-white">
     <div class="max-w-md mx-auto">
       <p class="text-[#ff6a2c] font-bold mb-2">혹시 이러지 않으셨나요?</p>
-      <h2 class="text-2xl font-extrabold mb-8 text-gray-900">배우고 싶은데, 벽이 너무 높다</h2>
+      <h2 class="text-2xl font-extrabold mb-8 text-gray-900 leading-snug">분명 <span class="grad-text">쉽다고</span> 했는데..<br/>유튜브 보면 <span class="grad-text">10분이면</span> 된다더니..</h2>
       <div class="space-y-4">
         <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5">
           <p class="text-xl mb-1 text-gray-900">😵 "설치부터 막혔다"</p>
@@ -143,6 +145,23 @@
           <p class="text-gray-500 text-sm leading-relaxed">예제는 따라 했지만, 정작 <b class="text-gray-900">내 업무에 적용</b>하려니 머릿속이 하얘진다.</p>
         </div>
       </div>
+
+      <p class="text-center text-gray-500 text-sm mt-10 mb-1">게다가 유튜브엔 최신 강의가 매일 쏟아지는데...</p>
+      <div class="relative h-24 overflow-hidden">
+        <span class="fall-word absolute left-[6%] text-lg font-extrabold text-gray-400" style="animation-delay:0s">에이전트</span>
+        <span class="fall-word absolute left-[40%] text-lg font-extrabold text-gray-300" style="animation-delay:.5s">서브에이전트</span>
+        <span class="fall-word absolute left-[78%] text-lg font-extrabold text-gray-400" style="animation-delay:1s">하네싱</span>
+        <span class="fall-word absolute left-[22%] text-lg font-extrabold text-gray-300" style="animation-delay:1.6s">Git</span>
+        <span class="fall-word absolute left-[60%] text-lg font-extrabold text-gray-400" style="animation-delay:2.2s">MCP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 임팩트 전환 -->
+  <section class="px-5 py-20 bg-[#0a0a0f] text-center">
+    <div class="max-w-md mx-auto">
+      <p class="text-gray-400 mb-3">쏟아지는 용어에 또 포기하기 전에</p>
+      <h2 class="text-3xl font-extrabold leading-snug">그래서 비개발자인 당신에겐,<br/><span class="grad-text">오프라인 밀착 과외</span>가<br/>필요합니다</h2>
     </div>
   </section>
 
