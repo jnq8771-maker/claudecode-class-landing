@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<style>
+ *{margin:0;padding:0;box-sizing:border-box;font-family:'Pretendard',sans-serif}
+ body{width:480px;height:300px;background:#f5f6f8;color:#191919;padding:18px}
+ .hd{display:flex;align-items:center;font-size:16px;font-weight:800;margin-bottom:12px}
+ .hd .live{margin-left:auto;font-size:11px;color:#03c75a;font-weight:700}
+ .card{background:#fff;border-radius:14px;padding:13px 15px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+ .quote{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+ .apt{font-size:12px;color:#8a8f97;margin-bottom:3px}
+ .price{font-size:20px;font-weight:800}
+ .up{font-size:12px;color:#f04452;font-weight:700;margin-left:4px}
+ .row{display:flex;gap:10px}
+ .chart{flex:1.4}
+ .news{flex:1;background:#fff;border-radius:14px;padding:12px 13px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+ .news .nt{font-size:11px;font-weight:800;color:#03c75a;margin-bottom:8px}
+ .news .ni{font-size:11px;color:#3a3f47;line-height:1.4;margin-bottom:8px;padding-left:11px;position:relative}
+ .news .ni::before{content:"·";position:absolute;left:2px;color:#03c75a;font-weight:800}
+</style></head><body>
+ <div class="hd">🏠 부동산 투자 정보 에이전트<span class="live">● 실시간</span></div>
+ <div class="row">
+   <div class="card chart">
+     <div class="quote"><div><div class="apt">관심단지 · 국민평형 84㎡</div><div class="price">14.8억<span class="up">▲ 2,500 (1.7%)</span></div></div></div>
+     <svg viewBox="0 0 240 90" style="width:100%">
+       <defs><linearGradient id="reg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f04452" stop-opacity=".22"/><stop offset="100%" stop-color="#f04452" stop-opacity="0"/></linearGradient></defs>
+       <path d="M6,74 L46,70 86,60 126,58 166,42 206,28 234,10 L234,86 6,86 Z" fill="url(#reg)"/>
+       <polyline points="6,74 46,70 86,60 126,58 166,42 206,28 234,10" fill="none" stroke="#f04452" stroke-width="2.5" stroke-linecap="round"/>
+       <circle cx="234" cy="10" r="3.5" fill="#f04452"/>
+       <text x="6" y="88" font-size="8" fill="#b0b4ba">1월</text><text x="220" y="88" font-size="8" fill="#b0b4ba">12월</text>
+     </svg>
+   </div>
+   <div class="news">
+     <div class="nt">📰 AI 요약 뉴스</div>
+     <div class="ni">3기 신도시 사전청약 물량 확대</div>
+     <div class="ni">한은 금리 인하 시사, 매수세 회복 기대</div>
+     <div class="ni">서울 재건축 규제 추가 완화 검토</div>
+   </div>
+ </div>
+ <div class="card" style="margin-top:10px;display:flex;align-items:center;gap:8px;font-size:12px;color:#3a3f47">
+   <span style="background:#eafaf1;color:#03c75a;font-weight:800;border-radius:8px;padding:3px 8px;font-size:11px">AI 분석</span>
+   저평가 신호 3곳 · 전세가율 상승 단지 자동 추적 중
+ </div>
+</body></html>
