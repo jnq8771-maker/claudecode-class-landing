@@ -636,6 +636,24 @@
           body: new URLSearchParams(new FormData(f)).toString()
         }).then(done).catch(done);
       });
+      // 스크롤 깊이 + 폼 도달 추적
+      (function () {
+        var marks = [25, 50, 75, 90], hit = {};
+        window.addEventListener('scroll', function () {
+          var h = document.documentElement, mx = h.scrollHeight - h.clientHeight;
+          if (mx <= 0) return;
+          var sd = h.scrollTop / mx * 100;
+          marks.forEach(function (m) { if (sd >= m && !hit[m]) { hit[m] = 1; window.posthog && posthog.capture('scroll_depth', { percent: m }); } });
+        }, { passive: true });
+        var apply = document.getElementById('apply');
+        if (apply && 'IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { window.posthog && posthog.capture('reached_apply_form'); io.disconnect(); } });
+          });
+          io.observe(apply);
+        }
+      })();
+
       function done() {
         if (window.posthog) posthog.capture('lead_form_submitted');
         document.getElementById('applyForm').classList.add('hidden');
