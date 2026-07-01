@@ -24,9 +24,10 @@
     @keyframes pulse-cta { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
     .pulse { animation: pulse-cta 1.8s ease-in-out infinite; }
     .blink { animation: blink 1.2s step-start infinite; } @keyframes blink { 50%{opacity:.4} }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee { animation: marquee 30s linear infinite; }
-    .marquee > div { margin-right: 16px; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .mq-track > div { margin-right: 16px; }
+    #mq { -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body class="bg-[#0a0a0f] text-white antialiased">
@@ -187,59 +188,92 @@
     </div>
   </section>
 
-  <!-- 수강생 결과물 (가로 마퀴) -->
-  <section class="py-16 bg-[#f4f4f7] overflow-hidden">
+  <!-- 수강생 결과물 (가로 마퀴, 드래그 가능) -->
+  <section class="py-16 bg-[#f4f4f7]">
     <div class="px-5 mb-8 text-center">
+      <p class="text-[#ff6a2c] font-bold mb-2">단 2일이면, 여러분도 가능합니다</p>
       <h2 class="text-2xl font-extrabold text-gray-900 mb-2">수강생들이 <span class="grad-text">직접 만든 결과물</span></h2>
-      <p class="text-gray-500 text-sm">2일 만에 이런 걸 직접 만들어 갑니다</p>
+      <p class="text-gray-500 text-sm">코딩 0지식에서 시작해, 이런 걸 직접 만들어 갑니다</p>
     </div>
-    <div class="overflow-hidden">
-      <div class="flex marquee w-max">
+    <div id="mq" class="overflow-x-auto no-scrollbar" style="cursor:grab">
+      <div class="flex mq-track w-max px-5">
         <!-- 세트 1 -->
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="dashboard_demo.png" class="w-full h-36 object-cover object-top" alt="대시보드 결과물" />
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="dashboard_demo.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="월간 수입·비용 대시보드" />
           <div class="p-4"><p class="font-bold text-gray-900 text-sm">월간 수입·비용 자동 정리 대시보드</p><p class="text-gray-400 text-xs mt-1">요식업 대표님</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="thumb1.png" class="w-full h-36 object-cover object-top" alt="지원사업 리서치 에이전트" />
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb1.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="지원사업 리서치 에이전트" />
           <div class="p-4"><p class="font-bold text-gray-900 text-sm">지원사업 자동 리서치 에이전트</p><p class="text-gray-400 text-xs mt-1">스타트업 대표</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="nomu.png" class="w-full h-36 object-cover object-left-top" alt="노무 관리 프로그램" />
-          <div class="p-4"><p class="font-bold text-gray-900 text-sm">노무 관리 프로그램</p><p class="text-gray-400 text-xs mt-1">경영지원팀 직장인</p></div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_finance.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="재무 플래너·가계부" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">20대 1억 재무 플래너·가계부</p><p class="text-gray-400 text-xs mt-1">20대 직장인</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="thumb4.png" class="w-full h-36 object-cover object-top" alt="블로그 컨텐츠 자동 작성 봇" />
-          <div class="p-4"><p class="font-bold text-gray-900 text-sm">블로그 컨텐츠 자동 작성 봇</p><p class="text-gray-400 text-xs mt-1">프리랜서 마케터</p></div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_alba.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="알바 지원자 자동 응대" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">알바 지원자 자동 응대·면접</p><p class="text-gray-400 text-xs mt-1">요식업 대표님</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <video src="mov.mp4" class="w-full h-36 object-cover" autoplay muted loop playsinline></video>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <video src="mov.mp4" class="w-full h-[158px] object-cover" autoplay muted loop playsinline></video>
           <div class="p-4"><p class="font-bold text-gray-900 text-sm">앱서비스 자동 튜토리얼 퀴즈</p><p class="text-gray-400 text-xs mt-1">스타트업 운영매니저</p></div>
         </div>
-        <!-- 세트 2 (복제: 끊김 없는 루프용) -->
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="dashboard_demo.png" class="w-full h-36 object-cover object-top" alt="대시보드 결과물" />
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_running.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="러닝 인스타 콘텐츠 생성기" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">러닝 인스타 콘텐츠 생성기</p><p class="text-gray-400 text-xs mt-1">러닝 매거진 운영자</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="nomu.png" draggable="false" class="w-full h-[158px] object-cover object-left-top" alt="노무 관리 프로그램" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">노무 관리 프로그램</p><p class="text-gray-400 text-xs mt-1">경영지원팀 직장인</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_shorts.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="자동 숏폼 편집기" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">자동 숏폼 편집기</p><p class="text-gray-400 text-xs mt-1">마케팅 대행사 직원</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb4.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="블로그 컨텐츠 자동 작성 봇" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">블로그 컨텐츠 자동 작성 봇</p><p class="text-gray-400 text-xs mt-1">프리랜서 마케터</p></div>
+        </div>
+        <!-- 세트 2 (복제) -->
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="dashboard_demo.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="월간 수입·비용 대시보드" />
           <div class="p-4"><p class="font-bold text-gray-900 text-sm">월간 수입·비용 자동 정리 대시보드</p><p class="text-gray-400 text-xs mt-1">요식업 대표님</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="thumb1.png" class="w-full h-36 object-cover object-top" alt="지원사업 리서치 에이전트" />
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb1.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="지원사업 리서치 에이전트" />
           <div class="p-4"><p class="font-bold text-gray-900 text-sm">지원사업 자동 리서치 에이전트</p><p class="text-gray-400 text-xs mt-1">스타트업 대표</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="nomu.png" class="w-full h-36 object-cover object-left-top" alt="노무 관리 프로그램" />
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_finance.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="재무 플래너·가계부" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">20대 1억 재무 플래너·가계부</p><p class="text-gray-400 text-xs mt-1">20대 직장인</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_alba.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="알바 지원자 자동 응대" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">알바 지원자 자동 응대·면접</p><p class="text-gray-400 text-xs mt-1">요식업 대표님</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <video src="mov.mp4" class="w-full h-[158px] object-cover" autoplay muted loop playsinline></video>
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">앱서비스 자동 튜토리얼 퀴즈</p><p class="text-gray-400 text-xs mt-1">스타트업 운영매니저</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_running.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="러닝 인스타 콘텐츠 생성기" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">러닝 인스타 콘텐츠 생성기</p><p class="text-gray-400 text-xs mt-1">러닝 매거진 운영자</p></div>
+        </div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="nomu.png" draggable="false" class="w-full h-[158px] object-cover object-left-top" alt="노무 관리 프로그램" />
           <div class="p-4"><p class="font-bold text-gray-900 text-sm">노무 관리 프로그램</p><p class="text-gray-400 text-xs mt-1">경영지원팀 직장인</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <img src="thumb4.png" class="w-full h-36 object-cover object-top" alt="블로그 컨텐츠 자동 작성 봇" />
-          <div class="p-4"><p class="font-bold text-gray-900 text-sm">블로그 컨텐츠 자동 작성 봇</p><p class="text-gray-400 text-xs mt-1">프리랜서 마케터</p></div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb_shorts.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="자동 숏폼 편집기" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">자동 숏폼 편집기</p><p class="text-gray-400 text-xs mt-1">마케팅 대행사 직원</p></div>
         </div>
-        <div class="w-60 flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-          <video src="mov.mp4" class="w-full h-36 object-cover" autoplay muted loop playsinline></video>
-          <div class="p-4"><p class="font-bold text-gray-900 text-sm">앱서비스 자동 튜토리얼 퀴즈</p><p class="text-gray-400 text-xs mt-1">스타트업 운영매니저</p></div>
+        <div class="w-[264px] flex-shrink-0 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+          <img src="thumb4.png" draggable="false" class="w-full h-[158px] object-cover object-top" alt="블로그 컨텐츠 자동 작성 봇" />
+          <div class="p-4"><p class="font-bold text-gray-900 text-sm">블로그 컨텐츠 자동 작성 봇</p><p class="text-gray-400 text-xs mt-1">프리랜서 마케터</p></div>
         </div>
       </div>
     </div>
-    <p class="text-gray-400 text-xs text-center mt-6 px-5">* 무엇이든 가능합니다. 당신의 업무를 가져오세요.</p>
+    <p class="text-gray-400 text-xs text-center mt-6 px-5">← 밀어서 더 보기 · 무엇이든 만들 수 있습니다</p>
   </section>
 
   <!-- 커리큘럼 -->
@@ -468,6 +502,37 @@
       }
       tick();
       setInterval(tick, 1000);
+    })();
+  </script>
+
+  <script>
+    // 결과물 마퀴: 자동 롤링 + 드래그/스와이프
+    (function () {
+      var mq = document.getElementById('mq');
+      if (!mq) return;
+      var paused = false, down = false, startX = 0, startL = 0;
+      mq.addEventListener('pointerdown', function (e) {
+        paused = true;
+        if (e.pointerType === 'mouse') { down = true; startX = e.clientX; startL = mq.scrollLeft; mq.style.cursor = 'grabbing'; }
+      });
+      window.addEventListener('pointermove', function (e) {
+        if (down && e.pointerType === 'mouse') { mq.scrollLeft = startL - (e.clientX - startX); }
+      });
+      window.addEventListener('pointerup', function () {
+        down = false; mq.style.cursor = 'grab';
+        setTimeout(function () { paused = false; }, 1200);
+      });
+      mq.addEventListener('mouseleave', function () { if (!down) paused = false; });
+      function tick() {
+        var half = mq.scrollWidth / 2;
+        if (half > 0) {
+          if (!paused) mq.scrollLeft += 0.5;
+          if (mq.scrollLeft >= half) mq.scrollLeft -= half;
+          else if (mq.scrollLeft <= 0) mq.scrollLeft += half;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
     })();
   </script>
 </body>
